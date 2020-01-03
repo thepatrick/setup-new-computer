@@ -2,16 +2,23 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-   <key>AttributeMapping</key>
-   <dict>
-      <key>dsAttributeString</key>
-      <string>dsAttrTypeStandard:AltSecurityIdentities</string>
-      <key>fields</key>
-      <array>
-         <string>NT Principal Name</string>
-      </array>
-      <key>formatString</key>
-      <string>Kerberos:$1</string>
-   </dict>
+	<key>TrustedAuthorities</key>
+	<array>
+		<string>CFFE6507ACD4EF9E30687815942E3EDF62992342F7447C0A52D5A54EE7EC84A3</string>
+		<string>726CC1484C0DCA7BA432DE01E9B5DF5149B03CC93A4174E9A8A8D84E710D8E89</string>
+	</array>
+	<key>AttributeMapping</key>
+	<dict>
+		<key>dsAttributeString</key>
+		<string>dsAttrTypeStandard:AltSecurityIdentities</string>
+		<key>fields</key>
+		<array>
+			<string>NT Principal Name</string>
+		</array>
+		<key>formatString</key>
+		<string>Kerberos:$1</string>
+	</dict>
+	<key>NotEnforcedGroup</key>
+	<string>NoSmartcardRequired</string>
 </dict>
 </plist>
