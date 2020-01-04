@@ -2,5 +2,5 @@
 
 defaults write \
   /Library/Preferences/com.apple.loginwindow \
-  DisableFDEAutologin \
+  DisableFDEAutoLogin \
   -bool YES
