@@ -1,0 +1,12 @@
+#!/bin/sh
+
+if [ "$3" == "/" ]; then
+    TARGETVOL=""
+else
+    TARGETVOL="$3"
+fi
+
+defaults write \
+  "$TARGETVOL/Library/Preferences/com.apple.loginwindow" \
+  DisableFDEAutoLogin \
+  -bool YES

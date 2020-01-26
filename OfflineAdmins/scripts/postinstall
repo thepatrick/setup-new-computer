@@ -1,0 +1,20 @@
+#!/bin/sh
+
+if [ "$3" == "/" ]; then
+    TARGETVOL=""
+else
+    TARGETVOL="$3"
+fi
+
+if [ "$3" == "/" ]; then
+  # Unload any existing LaunchDaemon in case of upgrades
+  launchctl unload /Library/LaunchDaemons/cloud.thepatrick.twopats.offline-admin.plist
+fi
+
+# Move LaunchDaemon into place - this ensures local admin rights are maintained off-network
+cp "$TARGETVOL/Library/Management/twopats.thepatrick.cloud/offline-admin/cloud.thepatrick.twopats.offline-admin.plist" \
+  "$TARGETVOL/Library/LaunchDaemons/cloud.thepatrick.twopats.offline-admin.plist"
+
+if [ "$3" == "/" ]; then
+  launchctl load /Library/LaunchDaemons/cloud.thepatrick.twopats.offline-admin.plist
+fi
