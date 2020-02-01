@@ -6,6 +6,6 @@ else
     TARGETVOL="$3"
 fi
 
-security add-trusted-cert -d -r trustRoot -k "$TARGETVOL/Library/Keychains/System.keychain" "$TARGETVOL/Library/Management/twopats.thepatrick.cloud/CA/thepatrick.cloud.pem"
+security add-trusted-cert -d -r trustRoot -k "$TARGETVOL/Library/Keychains/System.keychain" "$TARGETVOL/Library/Management/ad.thepatrick.cloud/CA/thepatrick.cloud.pem"
 
-security add-trusted-cert -d -r trustAsRoot -k "$TARGETVOL/Library/Keychains/System.keychain" "$TARGETVOL/Library/Management/twopats.thepatrick.cloud/CA/ad.thepatrick.cloud.pem"
+security add-trusted-cert -d -r trustAsRoot -k "$TARGETVOL/Library/Keychains/System.keychain" "$TARGETVOL/Library/Management/ad.thepatrick.cloud/CA/ad.thepatrick.cloud.pem"
