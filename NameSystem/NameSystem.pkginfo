@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>_metadata</key>
+	<dict>
+		<key>created_by</key>
+		<string>patrick</string>
+		<key>creation_date</key>
+		<date>2020-01-27T08:12:44Z</date>
+		<key>munki_version</key>
+		<string>4.0.1.3899</string>
+		<key>os_version</key>
+		<string>10.15.2</string>
+	</dict>
+	<key>autoremove</key>
+	<false/>
+	<key>catalogs</key>
+	<array>
+		<string>testing</string>
+	</array>
+	<key>installcheck_script</key>
+	<string>#!/bin/sh
+
+# Check if computer_name file exists. Abort if it doesn't exist. 
+
+if [ ! -f /Users/Shared/computer_name.txt ]; then
+    echo "/Users/Shared/computer_name.txt not found!"
+    exit 1
+fi
+</string>
+	<key>installer_type</key>
+	<string>nopkg</string>
+	<key>minimum_os_version</key>
+	<string>10.4.0</string>
+	<key>name</key>
+	<string>NameSystem</string>
+	<key>postinstall_script</key>
+	<string>#!/bin/bash
+
+# This script is part of our bootstrappr workflow. It sets the Mac name, and gens a munki manifest based on munki-enroll.
+
+ComputerName=`cat /Users/Shared/computer_name.txt`
+Serial=`/usr/sbin/ioreg -l | grep IOPlatformSerialNumber | cut -d'"' -f4
+
+# Name the Mac
+/usr/sbin/scutil --set ComputerName "$ComputerName"
+/usr/sbin/scutil --set HostName "$ComputerName"
+/usr/sbin/scutil --set LocalHostName "$ComputerName"
+
+
+# Remove the file computer_name.txt bootstrappr file
+/bin/rm /Users/Shared/computer_name.txt
+
+exit 0
+</string>
+	<key>version</key>
+	<string>1.0</string>
+</dict>
+</plist>
+
