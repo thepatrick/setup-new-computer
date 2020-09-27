@@ -1,3 +1,9 @@
+# Offline Admins
+
+Setups a systemd unit to manually provide admin rights to any user that is a member of any Active Directory group configured to have admin rights on the current Mac. 
+
+This exists because if a users group membership is evaluated when an Active Directory Domain Controller is not reachable (and this has not been cached recently) then the user ends up without admin access. Depending on your machine config and users this could be annoying (have to connect to a VPN just to complete a task) to causing a major disrutpion (e.g. the VPN requires a VPN update before it can connect, but installing that update requires admin permission).
+
 Check Local Admin
 =================
 

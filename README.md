@@ -1,7 +1,7 @@
 # Setup New Computer
 
-See the [Wiki](https://github.com/thepatrick/setup-new-computer/wiki) for my guide.
+See the [Wiki](https://github.com/thepatrick/setup-new-computer/wiki) for what I do to setup a new machine.
 
-## Installer
+## Previously
 
-Look in the Releases tab, eventually.
+Older scripts and packages (binding to AD, setting up smart card login) are now in the `previously` folder.
